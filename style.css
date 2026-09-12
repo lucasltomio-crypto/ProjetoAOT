@@ -1,0 +1,654 @@
+/* Importação de Fonte Épica (Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
+
+/* Reset e Configurações Globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Rajdhani', sans-serif; /* Fonte futurista para o corpo */
+}
+
+body {
+    background-color: #0b0b12;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* --- ANIMAÇÕES DE NEON --- */
+@keyframes neonGlow {
+    0% {
+        border-color: #ff0055;
+        box-shadow: 0 0 15px rgba(19, 19, 19, 0.678), inset 0 0 10px rgba(216, 210, 212, 0.3);
+    }
+    50% {
+        border-color: #920404;
+        box-shadow: 0 0 20px rgba(155, 2, 53, 0.6), inset 0 0 10px rgba(247, 1, 42, 0.3);
+    }
+    100% {
+        border-color: #ff0055;
+        box-shadow: 0 0 15px rgba(255, 0, 85, 0.6), inset 0 0 10px rgba(255, 0, 85, 0.3);
+    }
+}
+
+@keyframes fadeInPage {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- CABEÇALHO COM VIDRO FOSCO (GLASSMORPHISM) --- */
+header {
+    background-color: rgba(18, 18, 28, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ff0055;
+    animation: neonGlow 6s infinite linear;
+}
+
+header .logo {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+header .logo h1 {
+    color: #fff;
+    font-size: 26px;
+    font-family: 'Cinzel', serif; /* Fonte do título estilo jogo */
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 15px;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    padding: 8px 18px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+}
+
+nav ul li a:hover, nav ul li a.active {
+    color: #ff0015;
+    background: rgba(255, 0, 85, 0.15);
+    border-color: #64032c;
+    box-shadow: 0 0 15px rgba(233, 3, 53, 0.5);
+}
+
+/* --- BANNER PRINCIPAL DE IMPACTO --- */
+.banner {
+    background: linear-gradient(rgba(11, 11, 18, 0.75), rgba(11, 11, 18, 0.9)), 
+                url('https://wallpaperaccess.com/full/4461850.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 110px 20px;
+    text-align: center;
+    border-bottom: 2px solid #790404ad;
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9);
+}
+
+.banner h2 {
+    font-size: 46px;
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 30px;
+    margin-bottom: 15px;
+    text-shadow: 0 0 15px #ff0022, 0 0 30px #74031f;
+}
+
+.banner p {
+    font-size: 20px;
+    color: #e0e0e0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* --- VITRINE DE CARDS INTERATIVOS --- */
+.showcase {
+    padding: 80px 20px;
+    max-width: 1400px; /* Aumentado para caber os 4 cards com folga */
+    margin: 0 auto;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px; /* aumentado de 25px para 40px, espaçamento entre os cards*/
+}
+
+.card {
+    background: rgba(20, 20, 33, 0.9);
+    border-radius: 14px;
+    width: 300px; 
+    overflow: hidden;
+    border: 2px solid #fa0462;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.37);
+    cursor: pointer;
+}
+
+/* Efeito ao passar o mouse nos Cards */
+.card:hover {
+    transform: translateY(-40px) scale(1.04);
+    border-color: #fc0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 2px solid #ff0055;
+    transition: transform 0.5s ease;
+}
+
+.card:hover img {
+    transform: scale(1.08); /* Zoom sutil na imagem ao passar o mouse */
+}
+
+.card-img-wrapper {
+    overflow: hidden;
+}
+
+.card-content {
+    padding: 22px;
+}
+
+.card-content h3 {
+    margin-bottom: 10px;
+    color: #fff;
+    font-size: 24px;
+    font-family: 'Cinzel', serif;
+}
+
+.category {
+    display: inline-block;
+    background: linear-gradient(45deg, #fc0155, #070507);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 15px;
+    font-size: 12px;
+    text-transform: uppercase;
+    margin-bottom: 15px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5);
+}
+
+.card-content p {
+    color: #bbb;
+    font-size: 15px;
+}
+
+/* --- FORMULÁRIO DE AVALIAÇÃO --- */
+.eval-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: linear-gradient(rgba(11, 11, 18, 0.82), rgba(11, 11, 18, 0.92)), 
+                url('https://wallpaperaccess.com/full/4461850.jpg') fixed center/cover;
+}
+
+.form-page {
+    padding: 60px 20px;
+    max-width: 950px;
+    margin: auto;
+    width: 100%;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.form-page h2 {
+    text-align: center;
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 35px;
+    letter-spacing: 2px;
+    text-shadow: 0 0 15px #ff0055;
+}
+
+.form-subtitle {
+    text-align: center;
+    margin-bottom: 30px;
+    color: #f0e7e7;
+    font-size: 18px;
+}
+
+.review-form {
+    background: rgba(20, 20, 33, 0.85);
+    backdrop-filter: blur(10px);
+    padding: 40px;
+    border-radius: 16px;
+    border: 2px solid #ff0000;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.281);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 20px;
+    font-weight: bold;
+    color: #fff;
+    font-size: 16px;
+}
+
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: rgba(11, 11, 18, 0.9);
+    color: #ff0037;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #ff0022;
+    box-shadow: 0 0 15px rgba(255, 1, 1, 0.6);
+}
+
+.radio-group {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    font-weight: normal;
+    cursor: pointer;
+    color: #ccc;
+    font-size: 19px;
+}
+
+.radio-group input {
+    margin-right: 8px;
+    accent-color: #ff0055;
+}
+
+.form-actions {
+    display: flex;
+    gap: 40px;
+    margin-top: 35px;
+}
+
+button {
+    flex: 1;
+    padding: 16px;
+    border: none;
+    border-radius: 8px;
+    font-size: 17px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, #af1c1c, #3a01018a);
+    color: white;
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.575);
+}
+
+.btn-submit:hover {
+    box-shadow: 0 0 40px rgba(255, 0, 0, 0.9);
+    transform: scale(1.03);
+}
+
+.btn-reset {
+    background-color: transparent;
+    color: #ff0000;
+    border: 2px solid #ff0000;
+}
+
+.btn-reset:hover {
+    background-color: rgba(255, 0, 0, 0.15);
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.6);
+    transform: scale(1.03);
+}
+
+/* --- ESTILOS DAS PÁGINAS DE DETALHES DA TEMPORADA --- */
+.season-page {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important;
+}
+
+.details-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 60px 20px;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.story-card {
+    background: rgba(20, 20, 33, 0.88);
+    backdrop-filter: blur(12px);
+    border: 2px solid #ff0000;
+    border-radius: 18px;
+    padding: 45px;
+    max-width: 800px;
+    width: 100%;
+    box-shadow: 0 0 35px rgba(112, 0, 255, 0.4);
+    animation: neonGlow 6s infinite linear;
+}
+
+.story-card h2 {
+    font-size: 34px;
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px #ff0000;
+    border-bottom: 2px solid #ff0055;
+    padding-bottom: 12px;
+}
+
+.story-card p {
+    font-size: 18px;
+    color: #e0e0e0;
+    line-height: 1.8;
+    margin-bottom: 25px;
+}
+
+.trivia-box {
+    background-color: rgba(11, 11, 18, 0.85);
+    border-left: 4px solid #ff0000;
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #d1d1d1;
+    font-size: 16px;
+}
+
+.cta-box {
+    text-align: center;
+}
+
+.btn-primary {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff0055, #720215);
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5);
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 40px rgba(255, 0, 85, 0.9);
+    transform: scale(1.05);
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: rgba(18, 18, 28, 0.95);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 2px solid #ff0000;
+}
+
+footer p {
+    color: #999;
+    font-size: 15px;
+}
+
+.social-links {
+    margin-top: 12px;
+}
+
+.social-links a {
+    color: #fc00004f;
+    text-decoration: none;
+    margin: 0 10px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #fa0404;
+    text-shadow: 0 0 12px #fc0101;
+}
+
+/* ==============================================
+   --- SEÇÃO DE PERSONAGENS & TITÃS (FLIP CARDS) ---
+   ============================================== */
+.characters-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px #ff0055;
+}
+
+.section-subtitle {
+    color: #bbb;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.flip-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+/* Estrutura 3D do Flip Card */
+.flip-card {
+    background-color: transparent;
+    width: 240px;
+    height: 420px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    transform-style: preserve-3d;
+}
+
+/* Girar o card ao passar o mouse */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Lado Frente e Verso */
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 14px;
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.35);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(20, 20, 33, 0.95);
+}
+
+/* Lado da Frente (Humano) */
+.flip-card-front img {
+    width: 100%;
+    height: 210px;
+    object-fit: cover;
+    border-radius: 8px;
+    border-bottom: 2px solid #ff0055;
+}
+
+.flip-card-front h3 {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.flip-hint {
+    font-size: 12px;
+    color: #ff0055;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Lado do Verso (Titã) */
+.flip-card-back {
+    transform: rotateY(180deg);
+    background: linear-gradient(135deg, rgba(30, 10, 18, 0.98), rgba(11, 11, 18, 0.98));
+    border-color: #ff0000;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+    text-align: left;
+}
+
+.flip-card-back h3 {
+    font-family: 'Cinzel', serif;
+    color: #ff0055;
+    font-size: 20px;
+    border-bottom: 1px solid #ff0055;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px #ff0055;
+}
+
+.titan-stats {
+    list-style: none;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.titan-stats strong {
+    color: #ff0055;
+}
+
+.titan-quote {
+    font-style: italic;
+    font-size: 13px;
+    color: #bbb;
+    border-left: 2px solid #ff0055;
+    padding-left: 10px;
+    margin-top: 15px;
+}
+
+/* Ajusta e encaixa a foto do Titã dentro do card */
+.titan-img {
+    width: 100%;
+    height: 130px;          /* Altura fixa para caber com o texto */
+    object-fit: cover;      /* A MÁGICA: Corta e encaixa a imagem sem esticar */
+    object-position: center;/* Centraliza o foco do Titã */
+    border-radius: 6px;
+    border: 1px solid #ff0055;
+    margin-bottom: 10px;
+}
+
+/* --- VISUALIZADOR DA TEMPORADA DENTRO DO FORMULÁRIO --- */
+.season-display {
+    display: flex;
+    align-items: center;
+    gap: 25px; /* Espaço entre a imagem e o texto */
+    background: rgba(11, 11, 18, 0.5); /* Fundo levemente mais escuro */
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #ff0055; /* Detalhe estiloso na esquerda */
+    margin-bottom: 35px;
+}
+
+.season-display img {
+    width: 200px;
+    height: 120px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 8px;
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+}
+
+.season-info {
+    flex: 1; /* Faz o texto ocupar o espaço restante na direita */
+}
+
+.season-info h3 {
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff0000;
+    margin-bottom: 8px;
+}
+
+.season-info p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.5;
+}

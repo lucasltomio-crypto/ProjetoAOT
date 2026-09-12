@@ -1,0 +1,663 @@
+/* Importação de Fonte Épica (Google Fonts) */
+/* Importa as famílias de fontes 'Cinzel' (para títulos) e 'Rajdhani' (para textos) diretamente dos servidores do Google */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@500;700&display=swap');
+
+/* Reset e Configurações Globais */
+* {
+    margin: 0; /* Zera as margens externas padrão de todos os elementos HTML */
+    padding: 0; /* Zera o espaçamento interno padrão de todos os elementos HTML */
+    box-sizing: border-box; /* Garante que largura e altura incluam bordas e paddings, evitando que o layout quebre */
+    font-family: 'Rajdhani', sans-serif; /* Define a fonte principal 'Rajdhani' para todo o site (estilo futurista/game) */
+}
+
+body {
+    background-color: #0b0b12; /* Define a cor de fundo do site para um tom roxo/azul quase preto */
+    color: #e0e0e0; /* Define a cor padrão dos textos para um cinza bem claro para dar contraste */
+    line-height: 1.6; /* Aumenta o espaçamento entre linhas para melhorar a leitura dos textos */
+    overflow-x: hidden; /* Esconde qualquer barra de rolagem horizontal se algum elemento estourar a largura da tela */
+}
+
+/* --- ANIMAÇÕES DE NEON --- */
+/* Declaração da animação 'neonGlow' que cria um efeito de pulsação nos brilhos neon */
+@keyframes neonGlow {
+    0% {
+        border-color: #ff0055; /* Inicia com borda rosa neon */
+        box-shadow: 0 0 15px rgba(19, 19, 19, 0.678), inset 0 0 10px rgba(216, 210, 212, 0.3); /* Sombra suave externa e interna */
+    }
+    50% {
+        border-color: #920404; /* Na metade do tempo, a borda fica vermelho-escuro */
+        box-shadow: 0 0 20px rgba(155, 2, 53, 0.6), inset 0 0 10px rgba(247, 1, 42, 0.3); /* Aumenta a intensidade do brilho */
+    }
+    100% {
+        border-color: #ff0055; /* Volta para a cor e brilho iniciais */
+        box-shadow: 0 0 15px rgba(255, 0, 85, 0.6), inset 0 0 10px rgba(255, 0, 85, 0.3);
+    }
+}
+
+/* Animação 'fadeInPage' que faz os elementos surgirem subindo suavemente na tela */
+@keyframes fadeInPage {
+    from {
+        opacity: 0; /* Começa totalmente transparente */
+        transform: translateY(20px); /* Começa 20 pixels abaixo da posição original */
+    }
+    to {
+        opacity: 1; /* Termina totalmente visível */
+        transform: translateY(0); /* Chega à sua posição final exata */
+    }
+}
+
+/* --- CABEÇALHO COM VIDRO FOSCO (GLASSMORPHISM) --- */
+header {
+    background-color: rgba(18, 18, 28, 0.85); /* Cor escura com 85% de opacidade (transparência leve) */
+    backdrop-filter: blur(12px); /* Efeito de vidro fosco (desfoca o fundo da página que estiver atrás do cabeçalho) */
+    -webkit-backdrop-filter: blur(12px); /* Suporte para navegadores baseados em WebKit (ex: Safari) */
+    position: sticky; /* Torna o cabeçalho "grudento" ao rolar a página */
+    top: 0; /* Fixa o cabeçalho exatamente no topo da tela */
+    z-index: 1000; /* Coloca o cabeçalho acima de quase todos os outros elementos da página na ordem visual */
+    padding: 15px 50px; /* Espaçamento interno: 15px acima/abaixo e 50px nas laterais */
+    display: flex; /* Ativa o layout Flexbox para alinhar os itens internos */
+    justify-content: space-between; /* Mantém a Logo na esquerda e o Menu no canto direito */
+    align-items: center; /* Alinha os itens verticalmente ao centro */
+    border-bottom: 2px solid #ff0055; /* Borda rosa/vermelha de 2px na parte inferior */
+    animation: neonGlow 6s infinite linear; /* Aplica a animação do brilho neon em loop infinito a cada 6 segundos */
+}
+
+header .logo {
+    display: flex; /* Flexbox para alinhar imagem/ícone da logo e texto */
+    align-items: center; /* Alinha no centro vertical */
+    gap: 15px; /* Espaço de 15px entre a foto/ícone da logo e o texto */
+}
+
+header .logo h1 {
+    color: #fff; /* Cor do texto em branco */
+    font-size: 26px; /* Tamanho da fonte do título principal da logo */
+    font-family: 'Cinzel', serif; /* Usa a fonte clássica/imponente 'Cinzel' */
+    text-transform: uppercase; /* Deixa todas as letras em MAIÚSCULAS */
+    letter-spacing: 3px; /* Espaçamento de 3px entre cada letra */
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.8); /* Brilho vermelho projetado ao redor do texto */
+}
+
+nav ul {
+    list-style: none; /* Remove as bolinhas/ponto padrão da lista HTML */
+    display: flex; /* Coloca os links do menu lado a lado horizontalmente */
+    gap: 20px; /* Distância de 20px entre cada item do menu */
+}
+
+nav ul li a {
+    color: #fff; /* Cor do texto dos links em branco */
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    font-weight: 700; /* Texto em negrito forte */
+    text-transform: uppercase; /* Letras maiúsculas */
+    font-size: 15px; /* Tamanho do texto */
+    letter-spacing: 1px; /* Espaçamento sutil de 1px entre letras */
+    transition: all 0.3s ease; /* Transição suave de 0.3s para qualquer alteração (como no hover) */
+    padding: 8px 18px; /* Espaço interno para parecer um botão: 8px cima/baixo, 18px lados */
+    border-radius: 6px; /* Bordas levemente arredondadas */
+    border: 1px solid transparent; /* Borda invisível até que haja interação */
+}
+
+/* Estado de HOVER (mouse por cima) e ativo (página atual) */
+nav ul li a:hover, nav ul li a.active {
+    color: #ff0015; /* Texto muda para vermelho chamativo */
+    background: rgba(255, 0, 85, 0.15); /* Fundo rosa transparente suave */
+    border-color: #64032c; /* Borda ganha cor vinho */
+    box-shadow: 0 0 15px rgba(233, 3, 53, 0.5); /* Efeito de luz neon atrás do botão */
+}
+
+/* --- BANNER PRINCIPAL DE IMPACTO --- */
+.banner {
+    /* Sobreposição: Degradê escuro + imagem de fundo */
+    background: linear-gradient(rgba(11, 11, 18, 0.75), rgba(11, 11, 18, 0.9)), 
+                url('https://wallpaperaccess.com/full/4461850.jpg');
+    background-size: cover; /* Faz a imagem cobrir toda a área do banner sem distorcer */
+    background-position: center; /* Centraliza a imagem no meio do container */
+    padding: 110px 20px; /* Espaçamento interno grande (110px em cima/baixo) */
+    text-align: center; /* Centraliza todo o texto do banner */
+    border-bottom: 2px solid #790404ad; /* Borda inferior vinho */
+    box-shadow: inset 0 0 50px rgba(0, 0, 0, 0.9); /* Sombra interna para escurecer as bordas */
+}
+
+.banner h2 {
+    font-size: 46px; /* Título bem grande */
+    font-family: 'Cinzel', serif; /* Fonte estilo épica */
+    color: #fff; /* Cor branca */
+    text-transform: uppercase; /* Letras maiúsculas */
+    letter-spacing: 4px; /* Maior espaçamento entre letras */
+    margin-bottom: 15px; /* Espaço de 15px para o parágrafo abaixo */
+    text-shadow: 0 0 15px #ff0022, 0 0 30px #74031f; /* Efeito de luz neon duplo (vermelho) */
+}
+
+.banner p {
+    font-size: 19px; /* Tamanho legível do texto explicativo */
+    color: #e0e0e0; /* Cinza claro */
+    max-width: 700px; /* Limita o tamanho horizontal do texto */
+    margin: 0 auto; /* Centraliza o bloco do parágrafo na tela */
+}
+
+/* --- VITRINE DE CARDS INTERATIVOS --- */
+.showcase {
+    padding: 80px 20px; /* Preenchimento interno acima/abaixo e lados */
+    max-width: 1400px; /* Largura máxima da seção */
+    margin: 0 auto; /* Centraliza a vitrine na página */
+    animation: fadeInPage 0.8s ease-out forwards; /* Faz o container surgir subindo suavemente em 0.8s */
+}
+
+.cards-container {
+    display: flex; /* Flexbox para alinhar os cards lado a lado */
+    flex-wrap: wrap; /* Permite que os cards vão para a linha de baixo se não couberem na tela */
+    justify-content: center; /* Centraliza os cards horizontalmente */
+    gap: 20px; /* Espaçamento de 20px entre os cards */
+}
+
+.card {
+    background: rgba(20, 20, 33, 0.9); /* Fundo escuro semi-transparente */
+    border-radius: 14px; /* Bordas arredondadas nos cards */
+    width: 300px; /* Largura fixa de cada card */
+    overflow: hidden; /* Corta qualquer elemento filho que saia dos limites do card */
+    border: 2px solid #fa0462; /* Borda rosa viva */
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transição com efeito de "mola/espalhamento" */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.37); /* Sombra suave avermelhada */
+    cursor: pointer; /* Transforma o ponteiro do mouse em uma mãozinha (clicável) */
+}
+
+/* Efeito ao passar o mouse nos Cards */
+.card:hover {
+    transform: translateY(-12px) scale(1.03); /* Eleva o card 12px e expande 3% do tamanho */
+    border-color: #fc0000; /* Muda a borda para vermelho forte */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.7); /* Aumenta muito o brilho neon ao redor */
+}
+
+.card img {
+    width: 100%; /* Imagem ocupa toda a largura do card */
+    height: 200px; /* Altura fixa de 200px */
+    object-fit: cover; /* Recorta a imagem para encaixar nos 200px sem esticar ou achatar */
+    border-bottom: 2px solid #ff0055; /* Linha de separação abaixo da imagem */
+    transition: transform 0.5s ease; /* Transição suave para o efeito de zoom */
+}
+
+.card:hover img {
+    transform: scale(1.08); /* Zoom de 8% na imagem quando o mouse passa no card */
+}
+
+.card-img-wrapper {
+    overflow: hidden; /* Mantém a imagem contida na div durante o zoom */
+}
+
+.card-content {
+    padding: 22px; /* Espaçamento interno dos textos do card */
+}
+
+.card-content h3 {
+    margin-bottom: 10px; /* Afasta o título do texto/categoria abaixo */
+    color: #fff; /* Texto branco */
+    font-size: 24px; /* Tamanho do título */
+    font-family: 'Cinzel', serif; /* Fonte estilizada */
+}
+
+.category {
+    display: inline-block; /* Faz a tag ter comportamento de bloco com tamanho próprio */
+    background: linear-gradient(45deg, #fc0155, #070507); /* Fundo degradê diagonal (rosa para preto) */
+    color: #fff; /* Cor do texto em branco */
+    padding: 4px 14px; /* Preenchimento interno leve */
+    border-radius: 20px; /* Bordas completas em pílula */
+    font-size: 12px; /* Texto pequeno */
+    text-transform: uppercase; /* Caixa alta */
+    margin-bottom: 15px; /* Espaço para o parágrafo abaixo */
+    font-weight: 700; /* Negrito */
+    letter-spacing: 1px; /* Espaçamento das letras */
+    box-shadow: 0 0 10px rgba(255, 0, 85, 0.5); /* Sombra neon na tag */
+}
+
+.card-content p {
+    color: #bbb; /* Texto cinza suave */
+    font-size: 15px; /* Tamanho de texto moderado */
+}
+
+/* --- FORMULÁRIO DE AVALIAÇÃO --- */
+.eval-page {
+    min-height: 100vh; /* Ocupa no mínimo 100% da altura da tela */
+    display: flex; /* Layout Flexbox */
+    flex-direction: column; /* Organiza itens em coluna (topo para baixo) */
+    justify-content: space-between; /* Distribui conteúdo do topo ao fim */
+    /* Fundo degradê escuro sobre imagem fixada na tela */
+    background: linear-gradient(rgba(11, 11, 18, 0.82), rgba(11, 11, 18, 0.92)), 
+                url('https://wallpaperaccess.com/full/4461850.jpg') fixed center/cover;
+}
+
+.form-page {
+    padding: 60px 20px; /* Preenchimento em volta do formulário */
+    max-width: 750px; /* Trava a largura do formulário em no máximo 750px */
+    margin: 0 auto; /* Centraliza na tela */
+    width: 100%; /* Garante adaptabilidade a telas menores */
+    animation: fadeInPage 0.8s ease-out forwards; /* Animação ao carregar */
+}
+
+.form-page h2 {
+    text-align: center; /* Centralizado */
+    color: #fff; /* Branco */
+    font-family: 'Cinzel', serif; /* Fonte temática */
+    font-size: 34px; /* Tamanho grande */
+    letter-spacing: 2px; /* Espaçamento de letras */
+    text-shadow: 0 0 15px #ff0055; /* Brilho rosa */
+}
+
+.form-subtitle {
+    text-align: center; /* Centralizado */
+    margin-bottom: 30px; /* Espaço até a caixa de formulário */
+    color: #f0e7e7; /* Texto levemente rosado/branco */
+    font-size: 18px; /* Tamanho legível */
+}
+
+.review-form {
+    background: rgba(20, 20, 33, 0.85); /* Fundo bem escuro e semi-transparente */
+    backdrop-filter: blur(10px); /* Efeito de vidro desfocado atrás do formulário */
+    padding: 40px; /* Espaçamento interno avantajado */
+    border-radius: 16px; /* Bordas arredondadas */
+    border: 2px solid #ff0000; /* Borda vermelha forte */
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.281); /* Brilho vermelho */
+}
+
+.form-group {
+    margin-bottom: 24px; /* Separação de 24px entre cada campo de entrada do formulário */
+}
+
+.form-group label {
+    display: block; /* Ocupa a linha inteira para empurrar o campo de entrada para baixo */
+    margin-bottom: 10px; /* Espaço para o campo */
+    font-weight: bold; /* Negrito */
+    color: #fff; /* Branco */
+    font-size: 16px; /* Tamanho legível */
+}
+
+/* Estilização conjunta dos campos de texto, e-mail, seleção e área de texto */
+input[type="text"],
+input[type="email"],
+select,
+textarea {
+    width: 100%; /* Ocupa 100% da largura da caixa pai */
+    padding: 14px; /* Espaço interno para fácil digitação */
+    border: 1px solid #333; /* Borda discreta escura */
+    border-radius: 8px; /* Bordas arredondadas */
+    background-color: rgba(11, 11, 18, 0.9); /* Fundo quase preto */
+    color: #ff0037; /* Cor da letra ao digitar (vermelho vivo) */
+    outline: none; /* Remove o contorno padrão azul do navegador */
+    font-size: 16px; /* Tamanho da fonte digitada */
+    transition: all 0.3s ease; /* Transição suave para o estado de clique */
+}
+
+/* Estilo aplicado quando o usuário clica para digitar num campo (:focus) */
+input[type="text"]:focus,
+input[type="email"]:focus,
+select:focus,
+textarea:focus {
+    border-color: #ff0022; /* Borda muda para vermelho vívido */
+    box-shadow: 0 0 15px rgba(255, 1, 1, 0.6); /* Cria brilho neon em volta da caixa selecionada */
+}
+
+.radio-group {
+    display: flex; /* Alinha opções de rádio em linha horizontal */
+    gap: 20px; /* Espaçamento entre as opções */
+    flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+}
+
+.radio-group label {
+    display: flex; /* Alinha o botão de rádio com seu texto */
+    align-items: center; /* Centralização vertical */
+    font-weight: normal; /* Texto sem negrito */
+    cursor: pointer; /* Mãozinha indicando que é clicável */
+    color: #ccc; /* Cinza claro */
+    font-size: 17px;
+}
+
+.radio-group input {
+    margin-right: 8px; /* Espaço entre a bolinha do radio e a palavra */
+    accent-color: #ff0055; /* Estiliza a cor da própria bolinha de seleção com rosa/vermelho */
+}
+
+.form-actions {
+    display: flex; /* Coloca os botões (enviar e limpar) lado a lado */
+    gap: 20px; /* Distância de 20px entre os botões */
+    margin-top: 35px; /* Afasta o grupo de botões dos campos acima */
+}
+
+button {
+    flex: 1; /* Faz ambos os botões dividirem o espaço igualmente (50% / 50%) */
+    padding: 16px; /* Altura do botão */
+    border: none; /* Sem borda padrão */
+    border-radius: 8px; /* Cantos arredondados */
+    font-size: 17px; /* Tamanho da fonte */
+    font-weight: bold; /* Negrito */
+    text-transform: uppercase; /* Caixa alta */
+    cursor: pointer; /* Mãozinha interativa */
+    letter-spacing: 1px; /* Espaçamento entre letras */
+    transition: all 0.3s ease; /* Animações suaves no hover */
+}
+
+.btn-submit {
+    background: linear-gradient(45deg, #af1c1c, #3a01018a); /* Degradê tom vermelho escuro */
+    color: white; /* Texto branco */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.575); /* Sombra neon */
+}
+
+.btn-submit:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 0, 0.9); /* Aumenta brilho ao passar o mouse */
+    transform: scale(1.03); /* Ligeiro crescimento de 3% no botão */
+}
+
+.btn-reset {
+    background-color: transparent; /* Fundo transparente */
+    color: #ff0000; /* Texto vermelho */
+    border: 2px solid #ff0000; /* Linha de borda vermelha */
+}
+
+.btn-reset:hover {
+    background-color: rgba(255, 0, 0, 0.15); /* Fundo ganha leve tom vermelho */
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.6); /* Brilho neon */
+    transform: scale(1.03); /* Aumento sutil no hover */
+}
+
+/* --- ESTILOS DAS PÁGINAS DE DETALHES DA TEMPORADA --- */
+.season-page {
+    min-height: 100vh; /* Força altura total da tela */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* !important força a prioridade dessas regras de plano de fundo */
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-attachment: fixed !important; /* Imagem fica paralaxe (fixa ao rolar a página) */
+}
+
+.details-container {
+    flex: 1; /* Preenche todo o espaço vertical disponível entre o topo e o rodapé */
+    display: flex;
+    justify-content: center; /* Centraliza a caixa horizontalmente */
+    align-items: center; /* Centraliza a caixa verticalmente */
+    padding: 60px 20px;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.story-card {
+    background: rgba(20, 20, 33, 0.88); /* Fundo escuro levemente transparente */
+    backdrop-filter: blur(12px); /* Efeito fosco de fundo */
+    border: 2px solid #ff0000; /* Borda vermelha */
+    border-radius: 18px; /* Cantos arredondados */
+    padding: 45px; /* Preenchimento interno grande */
+    max-width: 800px; /* Largura limite */
+    width: 100%;
+    box-shadow: 0 0 35px rgba(112, 0, 255, 0.4); /* Sombra em tom roxo futurista */
+    animation: neonGlow 6s infinite linear; /* Efeito de brilho pulsante contínuo */
+}
+
+.story-card h2 {
+    font-size: 34px;
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 20px;
+    text-shadow: 0 0 12px #ff0000;
+    border-bottom: 2px solid #ff0055; /* Linha divisória rosa abaixo do título */
+    padding-bottom: 12px;
+}
+
+.story-card p {
+    font-size: 18px;
+    color: #e0e0e0;
+    line-height: 1.8; /* Aumenta a distância de leitura dos parágrafos longos */
+    margin-bottom: 25px;
+}
+
+.trivia-box {
+    background-color: rgba(11, 11, 18, 0.85); /* Caixa de curióstidades com fundo mais escuro */
+    border-left: 4px solid #ff0000; /* Detalhe estiloso de barra vermelha no lado esquerdo */
+    padding: 18px 22px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+    color: #d1d1d1;
+    font-size: 16px;
+}
+
+.cta-box {
+    text-align: center; /* Centraliza o botão Call-To-Action */
+}
+
+.btn-primary {
+    display: inline-block; /* Permite aplicar tamanhos/paddings corretamente a um link 'a' */
+    background: linear-gradient(45deg, #ff0055, #720215); /* Degradê vívido */
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none; /* Remove sublinhado */
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 8px;
+    letter-spacing: 1px;
+    font-size: 16px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.5); /* Brilho rosa neon */
+}
+
+.btn-primary:hover {
+    box-shadow: 0 0 30px rgba(255, 0, 85, 0.9); /* Aumenta brilho neon */
+    transform: scale(1.05); /* Cresce 5% */
+}
+
+/* --- RODAPÉ --- */
+footer {
+    background-color: rgba(18, 18, 28, 0.95); /* Fundo escuro quase opaco */
+    text-align: center; /* Centraliza direitos autorais e links */
+    padding: 30px 20px;
+    margin-top: 50px;
+    border-top: 2px solid #ff0000; /* Linha de borda superior */
+}
+
+footer p {
+    color: #999; /* Texto cinza discreto */
+    font-size: 15px;
+}
+
+.social-links {
+    margin-top: 12px;
+}
+
+.social-links a {
+    color: #fc00004f; /* Cor vermelha bem apagada/transparente */
+    text-decoration: none;
+    margin: 0 10px; /* Separa os links sociais */
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #fa0404; /* Vermelho vivo no hover */
+    text-shadow: 0 0 12px #fc0101; /* Brilho neon nas redes sociais */
+}
+
+/* ==============================================
+   --- SEÇÃO DE PERSONAGENS & TITÃS (FLIP CARDS) ---
+   ============================================== */
+.characters-section {
+    padding: 60px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeInPage 0.8s ease-out forwards;
+}
+
+.section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 36px;
+    color: #fff;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 8px;
+    text-shadow: 0 0 15px #ff0055;
+}
+
+.section-subtitle {
+    color: #bbb;
+    font-size: 16px;
+    margin-bottom: 40px;
+}
+
+.flip-cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center; /* Centraliza os flip cards horizontalmente */
+    gap: 30px; /* Distância de 30px entre cada flip card */
+}
+
+/* Estrutura 3D do Flip Card */
+.flip-card {
+    background-color: transparent; /* Fundo transparente */
+    width: 240px; /* Largura fixa do card */
+    height: 420px; /* Altura fixa do card */
+    perspective: 1000px; /* ATENÇÃO: Cria a profundidade 3D necessária para o efeito de rotação */
+    cursor: pointer;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Animação suave de giro */
+    transform-style: preserve-3d; /* IMPORTANTE: Garante que os filhos (frente e verso) fiquem em espaço 3D */
+}
+
+/* Ação de virar: quando o mouse passa no .flip-card, o .flip-card-inner roda 180 graus no eixo Y */
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+/* Lado Frente e Verso (Regras compartilhadas) */
+.flip-card-front, .flip-card-back {
+    position: absolute; /* Empilha a frente e o verso um sobre o outro */
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden; /* Esconde a parte de trás da face quando virada ao contrário */
+    backface-visibility: hidden; /* O TRUQUE: Faz a face de trás desaparecer quando a outra estiver virada */
+    border-radius: 14px;
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 20px rgba(255, 0, 85, 0.35);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background: rgba(20, 20, 33, 0.95);
+}
+
+/* Lado da Frente (Humano) */
+.flip-card-front img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 8px;
+    border-bottom: 2px solid #ff0055;
+}
+
+.flip-card-front h3 {
+    font-family: 'Cinzel', serif;
+    color: #fff;
+    font-size: 22px;
+    margin-top: 10px;
+}
+
+.flip-hint {
+    font-size: 12px;
+    color: #ff0055;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* Lado do Verso (Titã) */
+.flip-card-back {
+    transform: rotateY(180deg); /* O verso já começa pré-rotacionado em 180° para aguardar a virada */
+    background: linear-gradient(135deg, rgba(30, 10, 18, 0.98), rgba(11, 11, 18, 0.98)); /* Degradê dark */
+    border-color: #ff0000;
+    box-shadow: 0 0 25px rgba(255, 0, 85, 0.6);
+    text-align: left;
+}
+
+.flip-card-back h3 {
+    font-family: 'Cinzel', serif;
+    color: #ff0055;
+    font-size: 20px;
+    border-bottom: 1px solid #ff0055;
+    padding-bottom: 8px;
+    margin-bottom: 12px;
+    text-shadow: 0 0 8px #ff0055;
+}
+
+.titan-stats {
+    list-style: none; /* Tira bolinhas da lista de atributos */
+    font-size: 14px;
+    line-height: 1.8;
+    color: #ddd;
+}
+
+.titan-stats strong {
+    color: #ff0055; /* Rótulo dos atributos em destaque rosa */
+}
+
+.titan-quote {
+    font-style: italic; /* Citação em itálico */
+    font-size: 13px;
+    color: #bbb;
+    border-left: 2px solid #ff0055; /* Linha de destaque à esquerda da frase */
+    padding-left: 10px;
+    margin-top: 15px;
+}
+
+/* Ajusta e encaixa a foto do Titã dentro do card */
+.titan-img {
+    width: 100%;
+    height: 130px; /* Altura fixa contida para não estourar o card do verso */
+    object-fit: cover; /* Recorta e encaixa sem distorcer a proporção original */
+    object-position: center; /* Foco da imagem mantido exatamente no centro */
+    border-radius: 6px;
+    border: 1px solid #ff0055;
+    margin-bottom: 10px;
+}
+
+/* --- VISUALIZADOR DA TEMPORADA DENTRO DO FORMULÁRIO --- */
+.season-display {
+    display: flex; /* Flexbox em linha */
+    align-items: center; /* Centraliza imagem e descrição verticalmente */
+    gap: 25px; /* Espaço entre a imagem e o bloco de texto */
+    background: rgba(11, 11, 18, 0.5); /* Fundo levemente escurecido */
+    padding: 20px;
+    border-radius: 12px;
+    border-left: 4px solid #ff0055; /* Barra vertical estilizada no lado esquerdo */
+    margin-bottom: 35px;
+}
+
+.season-display img {
+    width: 200px; /* Largura da miniatura */
+    height: 120px; /* Altura da miniatura */
+    object-fit: cover; /* Mantém proporção da foto recortando excedentes */
+    object-position: center;
+    border-radius: 8px;
+    border: 2px solid #ff0055;
+    box-shadow: 0 0 15px rgba(255, 0, 85, 0.4);
+}
+
+.season-info {
+    flex: 1; /* Faz o bloco de texto expandir e ocupar todo o espaço restante do container */
+}
+
+.season-info h3 {
+    color: #fff;
+    font-family: 'Cinzel', serif;
+    font-size: 22px;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px #ff0000;
+    margin-bottom: 8px;
+}
+
+.season-info p {
+    color: #ccc;
+    font-size: 15px;
+    line-height: 1.5;
+}
