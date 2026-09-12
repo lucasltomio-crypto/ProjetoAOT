@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avaliar 2ª Temporada - AoT Reviews</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="eval-page" style="background: linear-gradient(rgba(11, 11, 18, 0.8), rgba(11, 11, 18, 0.9)), url('https://images.hdqwalls.com/download/attack-on-titan-5k-ms-3840x2400.jpg'); background-size: cover; background-attachment: fixed;">
+
+    <header>
+        <div class="logo">
+            <img src="https://see.fontimg.com/api/rf5/WW3z/YjAxZjk3ZWFlOTA2NDY5N2FlMzdiYWU1OTcwNzNhZWIudHRm/QXR0YWNrIG9uIFRpdGFu/holy-union.png?r=fs&h=58&w=1000&fg=F7EEEE&bg=FFFFFF&tb=1&s=58" alt="Logo AoT Reviews">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="index.html">INÍCIO</a></li>
+                <li><a href="personagens.html">PERSONAGENS</a></li>
+                <li><a href="avaliar.html" class="active">AVALIAR</a></li>
+                <li><a href="categoria.html">CATEGORIAS</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="form-page">
+        <h2>AVALIE A TEMPORADA</h2>
+        <p class="form-subtitle">Envie seu relatório de missão para a comunidade.</p>
+
+        <form action="#" method="get" class="review-form">
+            
+            <!-- IMAGEM E LEGENDA DENTRO DO FORMULÁRIO -->
+            <div class="season-display">
+                <img src="https://images.hdqwalls.com/download/attack-on-titan-5k-ms-3840x2400.jpg" alt="2ª Temporada">
+                <div class="season-info">
+                    <h3>Avaliando: 2ª Temporada</h3>
+                    <p>Invasão dentro da Muralha Rose e a revelação dos traidores chocam os sobreviventes.</p>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="nome">Nome do Soldado:</label>
+                <input type="text" id="nome" name="nome" placeholder="Ex: Levi Ackerman" required>
+            </div>
+
+            <div class="form-group">
+                <label for="email">E-mail de Contato:</label>
+                <input type="email" id="email" name="email" placeholder="soldado@paradis.com" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="cargo">Cargo do Usuário:</label>
+                <select id="cargo" name="cargo" required>
+                    <option value="" disabled selected>Escolha uma opção...</option>
+                    <option value="Eldiano">Eldiano</option>
+                    <option value="Marleyano">Marleyano</option>
+                    <option value="Soldado Eldiano">Soldado Eldiano</option>
+                    <option value="Soldado Marleyano">Soldado Marleyano</option>
+                    <option value="Capitão da Guarnição">Capitão da Guarnição</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label for="temporada">Selecione o Arco / Temporada:</label>
+                <select id="temporada" name="temporada" required>
+                    <option value="" disabled>Escolha uma opção...</option>
+                    <option value="s1">1ª Temporada</option>
+                    <option value="s2" selected>2ª Temporada</option>
+                    <option value="s3">3ª Temporada (P2)</option>
+                    <option value="s4">The Final Season</option>
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label>Nota da Avaliação:</label>
+                <div class="radio-group">
+                    <label><input type="radio" name="nota" value="1" required> 1 ★</label>
+                    <label><input type="radio" name="nota" value="2"> 2 ★</label>
+                    <label><input type="radio" name="nota" value="3"> 3 ★</label>
+                    <label><input type="radio" name="nota" value="4"> 4 ★</label>
+                    <label><input type="radio" name="nota" value="5"> 5 ★</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="review">Comentários / Review:</label>
+                <textarea id="review" name="review" rows="4" placeholder="O que achou da animação e dos acontecimentos?"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">ENVIAR REVIEW</button>
+                <button type="reset" class="btn-reset">LIMPAR</button>
+            </div>
+        </form>
+    </main>
+
+    <footer>
+        <p>Copyright &copy; 2026 AoTReviews. Todos os Direitos Reservados.</p>
+        <div class="social-links">
+           | <a href="#">Redes Sociais</a> | <a href="#">  Voltar ao Topo  </a> | <a href="#">Fale Conosco</a> | 
+        </div>
+    </footer>
+</body>
+</html>
