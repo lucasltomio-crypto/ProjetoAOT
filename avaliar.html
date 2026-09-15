@@ -21,13 +21,13 @@
             </ul>
         </nav>
     </header>
-    
 
     <main class="form-page">
         <h2>AVALIE A TEMPORADA</h2>
         <p class="form-subtitle">Envie seu relatório de missão para a comunidade.</p>
 
-        <form action="#" method="get" class="review-form">
+        <!-- Adicionado ID form-review -->
+        <form id="form-review" class="review-form">
             <div class="form-group">
                 <label for="nome">Nome do Soldado:</label>
                 <input type="text" id="nome" name="nome" placeholder="Ex: Levi Ackerman" required>
@@ -37,26 +37,27 @@
                 <label for="email">E-mail de Contato:</label>
                 <input type="email" id="email" name="email" placeholder="soldado@paradis.com" required>
             </div>
+
             <div class="form-group">
-                <label for="item">Cargo do Usuário:</label>
-                <select id="item" name="item" required>
+                <label for="cargo">Cargo do Usuário:</label>
+                <select id="cargo" name="cargo" required>
                     <option value="" disabled selected>Escolha uma opção...</option>
                     <option value="Eldiano">Eldiano</option>
                     <option value="Marleyano">Marleyano</option>
                     <option value="Soldado Eldiano">Soldado Eldiano</option>
                     <option value="Soldado Marleyano">Soldado Marleyano</option>
-                    <option value="Capitão da 29° Guarnição">Capitão da Guarnição</option>
+                    <option value="Capitão da Guarnição">Capitão da Guarnição</option>
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="item">Selecione o Arco / Temporada:</label>
-                <select id="item" name="item" required>
+                <label for="temporada">Selecione o Arco / Temporada:</label>
+                <select id="temporada" name="temporada" required>
                     <option value="" disabled selected>Escolha uma opção...</option>
-                    <option value="s1">1ª Temporada</option>
-                    <option value="s2">2ª Temporada</option>
-                    <option value="s3">3ª Temporada (P2)</option>
-                    <option value="s4">The Final Season</option>
+                    <option value="1ª Temporada">1ª Temporada</option>
+                    <option value="2ª Temporada">2ª Temporada</option>
+                    <option value="3ª Temporada (P2)">3ª Temporada (P2)</option>
+                    <option value="The Final Season">The Final Season</option>
                 </select>
             </div>
 
@@ -81,6 +82,12 @@
                 <button type="reset" class="btn-reset">LIMPAR</button>
             </div>
         </form>
+
+        <!-- Seção onde as avaliações salvas serão exibidas -->
+        <section style="margin-top: 40px;">
+            <h3 style="color: #fff; text-align: center; margin-bottom: 20px;">📜 RELATÓRIOS ENVIADOS</h3>
+            <div id="mural-reviews"></div>
+        </section>
     </main>
 
     <footer>
@@ -90,6 +97,7 @@
         </div>
     </footer>
 
+    <!-- Script de validação e salvamento -->
+    <script src="script.js"></script>
 </body>
 </html>
-
